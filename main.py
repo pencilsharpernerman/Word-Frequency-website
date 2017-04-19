@@ -19,21 +19,25 @@ def root_mode(word):
 			word = re.split(pattern,word)[0]
 	return word
 
+#parses the text file and returns a list of words
 def parse(file):
               with open(file, 'rb') as f:
               	return  re.findall(re.compile('\w+'), f.read().lower())
 
+#checks for an stop words present in the  text file
 def stop_words_remove(word_list):
 	filtered_words = [word for word in word_list if word not in stopwords.words('english')]
 	return filtered_words
 
-
+#checks if a word is present in the US English dictionary
 def check_valid_word(word):
 	d = enchant.Dict("en_US")
 	
 	if word != "" and d.check(word) and len(word) > 1 and  not is_number(word):
 		return word
 	return ""
+
+#checks if a string is a number 
 def is_number(s):
     try:
         float(s)
@@ -42,12 +46,13 @@ def is_number(s):
     except ValueError:
         return False
 
+#parses the dictionary to return the key with the max value
 def getMax(dictionary):
 	v=list(dictionary.values())
 	k=list(dictionary.keys())
 	return k[v.index(max(v))]
 
-
+#returns the final dictionary of root words from the text file with the word count 
 def final_word(filename):
 	word_list = stop_words_remove(parse(filename))
 	output = {}
@@ -71,6 +76,7 @@ def final_word(filename):
 	
 	return output
 
+#returns the top25frequently words in the dictionary
 def top25FrequentWords(filename):
 	i = 25
 	output = {}
