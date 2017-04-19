@@ -1,0 +1,200 @@
+1)Cookies time constraint?
+2)Many ads? 
+3)Cookies as a enitity set or as a relation?
+4)One user can be a both a buyer and a seller with a ISA relation how does that work?
+5)How is cookie user and url linked?(User cookie computer)
+6)Without logging in we can still browse so how does the cookie work if we register 5 min before the user register ?
+7)Payment profile of a credit card ?
+8)Only after register auction you can bid.How to show this or is this relevant?
+9)Is Ebid considered to be an entity?***
+10)Where to give the time and IP address as attributes?(Computer)
+11)So is a visitor and user are different entities can visitor be a weak entity?
+12)First bid of the item only once how to show this?
+13)Register User and visitor?
+14)Does Ebid auction the item or seller auction the item?
+
+
+15)IS Ebids an entity? 
+16)Can url be treated as a primary key because it is subjected to change?
+
+Seller Auctions an item
+Computer has IP
+
+Buyer - uses credit card - bids item
+
+Entity sets
+Auction - ??
+Item- Min price ,Shipping price,The shipping method,a description,a category,a name,A time put up for auction,a time to at which the auction is to end,unique item ID(primary key)
+User  to registered user  to ISA Buyer or Seller
+Webpage - HTML code, url (primary key),ads(multivalued)
+Ebids - not an enityt
+cookie - Cookie unique id,Time and IP
+Buyer - Credit card(multiple attributes)
+Seller - buyer satisfaction(has a)
+Browser - Type ,Java enabled (attributes to the cookie)
+Credit card - Num ,type,epiration date
+ads - ad id,Product name,ad content ???(******)
+
+Cardinality
+Users to ebid site is many to 1
+Credit card to buyer is many to 1
+Auction to credit to card is 1-1
+Cookie to user is 1-1
+Visitor - ??
+
+
+
+
+Relationships
+
+Bid - time and dollar as attributes(buyer and item)
+Payment profile - SEE ON WEBSITE for attributes(credit card and user)
+Uses - (credit card and auction)
+Register - User and Visitor ??
+browser has a cookie
+//Ebids track actions of visitor and user 
+//Webpage displays ads (atleast 1 ad)
+Webpage displays item
+Seller auctions an item
+Visitor registers to become a user
+
+
+
+
+User  can be a buyer or seller
+Other than the url we also have the
+
+
+Ebids have ip and dns name root url?
+
+Cookie stores info??
+
+
+
+After logging , the request to server is sent. At server side, it checks the visitor's identification against an ID that identifies whether it is a new user or the older one. If it determines it a new visitor,it then creates a cookie for it and sends it back in its response to browser. Cookie that is generated in response to Server has a name and unique identification is sent back to a user end. AT the user end ,after every visit to the same URL, browser rechecks cookie list and if it has the cookie for the same url , it is sent to server which identifies cookie ID and server shows the related history for this user then .
+
+
+User cannot be related to a cookie but it is related to a registered user.
+
+Cookies cannot collect confidential personal information such as name, phone number, email address, or gender unless the user specifically shares this information with the website. For example, a user might share personal information with a website by filling out a form or by actually making a purchase. The website could then store this information in the cookie and retrieve it should the user return on a later date.
+
+A session browser cookie can be stored in the web browser and deleted when the browser shuts down. Session cookies are used in shopping websites and keep track of things like what's in the shopping cart and the compare products features. These browser cookies let the user move from page to page without the need to repeatedly sign in.
+
+Read more at Suite101: Understanding Computer Browser Cookies: Internet Convenience, Information Security and Computer Privacy http://web.archive.org/web/20100706204912/http://internet-security.suite101.com/article.cfm/understanding_computer_browser_cookies#ixzz4MAztuOut
+
+A cookie is the term given to describe a type of message that is given to a Web browser by a Web server.  The main purpose of a cookie is to identify users and possibly prepare customized Web pages or to save site login information for you.
+When you enter a Web site using cookies, you may be asked to fill out a form providing personal information; like your name, e-mail address, and interests. This information is packaged into a cookie and sent to your Web browser, which then stores the information for later use. The next time you go to the same Web site, your browser will send the cookie to the Web server. The message is sent back to the server each time the browser requests a page from the server.
+A Web server has no memory so the hosted Web site you are visiting transfers a cookie file of the browser on your computer's hard disk so that the Web site can remember who you are and your preferences. This message exchange allows the Web server to use this information to present you with customized Web pages. So, for example, instead of seeing just a generic welcome page you might see a welcome page with your name on it.
+
+
+
+1)datatypes 
+2)Teach delete on cascade update on cascade no action what are use cases and when to use them?
+3)2 manages relationship
+4)heads relationship what has to assigned as the primary key if employee number is the primar key then what to do with the other primary key like the dept_no?(should we merge it with dept or employee here?)
+4)Job_code unknown data type?
+5)Ternary relationship what to make as the primary key for the relationship set in this case?
+6)When to use Not Null and Null?
+7)In the recursive relationship set what does the dash mean?
+8)The ternary relationship does not make sense M:M relationship between employees and salary 
+
+no tables for manages, is-in ,heads, manages,job
+
+Create Table Employee(
+Emp_no int (15);
+Emp_name char (20);
+Room_no int(20);
+primary key(emp_no);
+foreign key(dept_no) refernces department on delete set null on update cascasde;
+)
+
+Create Table Deparment (
+Dept_no int(20) not null;
+Dept_name char (20);
+Dept_head char (20);
+Primary key (Dept_no);
+foreign key(dept_no) refernces department on delete set null on update cascasde;
+)
+
+Create Table Project(
+
+)
+
+Create Table salary(
+
+)
+
+Create Table works-on(
+
+)
+
+
+
+
+
+
+Create Table Works on(
+ Proj_code int(20);
+ Emp_no int (20);
+ Primary key (proj_code,emp_no);
+ Foreign key (Proj_code) REFERNCES Project On delete cascade;
+ Foreign key (Emp_no) REFERNCES Employee On Delete cascade;
+)
+
+
+Create Table Heads(
+Emp_no int (20);
+Dept_no int (20);  ///////////??
+Primary key(Emp_no);
+Foreign key(Emp_no) References Employee;
+)
+
+Create Table manages( ////////////////////////////2 instances 2 different manages_id 
+Emp_no char (20);
+Room_no int (10);
+Primary key(Emp_no);
+Foreign key(Emp_no) REFERENCES Employee DELETE on CASCADE ////////////////??;
+)
+
+Create Table Job(
+Job_code int(20);
+Job_title char (20);
+Primary key(job code);
+)
+
+Create Table Salary(
+Salary_level int (20);
+Mon_salary int (20);
+Primary key (Salary_level);
+)
+
+Create table Employee (
+Emp_no int (15);
+Emp_name char (20);
+Room_no int(20);
+primary key(emp_no);
+)
+
+CREATE TABLE Dept (
+Dept_no int(20) not null;
+Dept_name char (20);
+Dept_head char (20);
+Primary key (Dept_no);
+)
+
+Create table Salary-hist(
+Salary_level int (20);
+Job code ////;
+Emp_no int(20);
+Primary key()
+)
+
+Creat table is-in(
+Emp_no int(20);
+Dept_no int(20);
+Primary key (Dept_no);
+Foreign key (Emp_no) References Employee On delete cascade on update cascade;
+Foreign key (Dept_no) Refernces Department;
+)
+
+

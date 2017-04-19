@@ -1,0 +1,1 @@
+SELECT Movie from appeared_in WHERE STAR = 'Edward Norton';

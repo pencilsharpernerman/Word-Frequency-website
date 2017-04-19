@@ -1,11 +1,93 @@
 
 
     <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
+    <html>
+    <head>
+	<style>
+
+	input[type="file" ] {
+		  display: block;
+		  margin: 0;
+		  width: 20%;
+		  font-family: sans-serif;
+		  font-size: 18px;
+		  appearance: none;
+		  box-shadow: none;
+		  border-radius: 25px;
+		  padding: 1px;
+		  border: solid 1px #c9c9c9;
+		  box-shadow: 0 0 5px 1px #969696;
+		  transition: box-shadow 0.3s, border 0.3s;
+		  padding-left: 20px;
+		 -moz-box-sizing: border-box;
+		  -webkit-box-sizing: border-box;
+		  box-sizing: border-box;
+		}
+		input[type="file"] {
+		  outline: none;
+		  
+		}
+		input[type="submit" ] {
+		  display: block;
+		  margin: 0;
+		  width: 20%;
+		  font-family: sans-serif;
+		  font-size: 18px;
+		  appearance: none;
+		  border-radius: 25px;
+		   padding: 1px;
+		  border: solid 1px #c9c9c9;
+		  box-shadow: 0 0 5px 1px #969696;
+		  transition: box-shadow 0.3s, border 0.3s;
+		   padding-left: 20px;
+		   -moz-box-sizing: border-box;
+		  -webkit-box-sizing: border-box;
+		  box-sizing: border-box;
+		}
+		input[type="submit"] {
+		  outline: none;
+		  
+		}
+		body{
+			background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Northwestern_University_Seal.svg/1200px-Northwestern_University_Seal.svg.png);
+			background-repeat:no-repeat;
+			background-size: 100px;
+			
+			 font-family: Lato, Arial;
+			  color: #fff;
+			  padding: 55px 25px;
+			  background-color: #e74c3c;
+			
+		}
+		
+		
+		h1,p{
+				color:black;
+				margin-top: 200px;
+				 text-shadow:0 3px 3px rgba(255,255,255,.2);
+				 font-weight: normal;
+				  font-size: 40px;
+				  font-weight: normal;
+				  text-transform: uppercase;
+				}
+	
+
+		
+	</style>
+</head>
+ 	
+ 
+    <title>Top 25 Most Frequent Words</title>
+    <h1 >
+    <span class = "highlight">High Frequency words </span>
+    </h1>
     <form action="" method=post enctype=multipart/form-data>
+    <div class="custom-file-upload">
       <p><input type=file name=file>
          <input type=submit value=Upload>
+         </p>
+         </div>
     </form>
     <p> {{  output  }}</p>
+    </html>
     
