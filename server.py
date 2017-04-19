@@ -3,7 +3,6 @@ from __future__ import print_function
 import os
 from flask import Flask, request, redirect, url_for,render_template
 from werkzeug import secure_filename
-from parse import parse
 import main
 import sys
 UPLOAD_FOLDER = './'
