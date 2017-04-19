@@ -27,5 +27,5 @@ def parse(filename) :
             return words_list
             #open_file.close()
 
-if __name__ == "__main__":
-	print parse("sample.txt")
+# if __name__ == "__main__":
+# 	print parse("sample.txt")
