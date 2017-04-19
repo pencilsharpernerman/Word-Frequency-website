@@ -13,6 +13,7 @@ Usage:
 
 Click the "Choose File" button and upload a text file which you need to evaluate.
 The webpage displays the Top 25 frequent words in the file present the English language dictionary excluding stop words.
+The top25 words returned are in-order of the frequency from max to min.
 
 
 
