@@ -27,5 +27,24 @@ Libraries:
 ntlk
 enchant
 
+To Run:
+
+Install nltk : Follwoing the instructions from :
+
+http://www.pitt.edu/~naraehan/python2/faq.html
+
+Download the stop words dictionary :
+
+Step 1 ) Open a python shell
+Step 2) import nltk
+        nltk.download('stopwords')
+
+Install enchant using the cmdline :
+
+pip install pyenchant
+
+Run the server on the localhost using the cmdline:
+python server.py
+
 
 
