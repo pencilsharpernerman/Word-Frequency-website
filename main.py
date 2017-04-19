@@ -1,6 +1,4 @@
-import Queue as queue
 import re
-from parse import parse
 from nltk.corpus import stopwords
 import enchant
 
